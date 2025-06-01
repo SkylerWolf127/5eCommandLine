@@ -20,6 +20,23 @@ public class Main
            so shit doesn't get partially filled in
            RAAAH INPUT SANITIZATION CAN SUCK MY NAAAAARDS
 
+    3. Add preset options for race, class, and subclass.
+
+    4. Player gender (Woke update fr)
+
+    5. Create a dedicated function to setup playerSheets (think iter_03 from C class for that dedicated struct setup
+
+     */
+    //TODO: BUG "unintentional features" list
+    /*
+            1. Creating a character adding more than one or saying no to adding more causes program crash
+                Something to do with scanner probably
+
+            2. Strength modifier always fails and will default to -20 with a modifier of -5
+
+            3. values inputted for character traits does not get sanitized and properly validated
+
+
      */
 
 
@@ -33,75 +50,14 @@ public class Main
         boolean setupFlag = false;
         Scanner scanner = new Scanner(System.in);
         LinkedList<PlayerSheet>playerSheets = new LinkedList<>();
-
         //##############################################################################################################
 
         //call menu function here
-        setupFlag = menu();
+        setupFlag = menu(playerSheets);
+
+        /*
         while (setupFlag == true)
         {
-            PlayerSheet sheet = new PlayerSheet();
-            Scanner userInput = new Scanner(System.in);
-            System.out.println(" +++SETUP PLAYER SHEET+++ \n" +
-                    "###########################");
-            System.out.println("Welcome. We'll now go through the process to setup your character.");
-            System.out.println("Who are you?\n" +
-                    "Please enter your character's name: ");
-            sheet.setName(userInput.nextLine());
-            System.out.println("Hello, " + sheet.getName());
-            System.out.println("What is your race: ");
-            sheet.setRace(userInput.nextLine());
-            System.out.println("You're a " + sheet.getRace() + "? alright...");
-            //call get Globalclass function
-            String playerClass = getGlobalClass();
-            sheet.setPlayerClass(playerClass);
-            System.out.println("A " + sheet.getPlayerClass() + ", great choice.");
-            System.out.println("Every class needs a subclass. What is your subclass?");
-            sheet.setSubclass(userInput.nextLine());
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            System.out.println("----------------------------------------------------------------------\n" +
-                    "##### Player Information ##### \n" +
-                    "Player Name: " + sheet.getName() + "\n" +
-                    "Player Race: " + sheet.getRace() + "\n" +
-                    "Player Class: " + sheet.getPlayerClass() + "\n" +
-                    "Player Subclass: " + sheet.getSubClass());
-            System.out.println("----------------------------------------------------------------------\n");
-            System.out.println("Let's get your ability scores setup.");
-            System.out.println("How strong are you? ");
-
-            //sheet.setStrength(userInput.nextInt());
-            sheet.setStrengthModifier(sheet.calculateModifier(sheet.getStrength()));
-
-            System.out.println("Your ability score is: " + sheet.getStrength() + " With a modifier of: " + sheet.getStrengthModifier());
-            System.out.println("How dexterous are you? ");
-            sheet.setDexterity(userInput.nextInt());
-            sheet.setDexterityModifier(sheet.calculateModifier(sheet.getDexterity()));
-            System.out.println("Your ability score is: " + sheet.getDexterity() + " With a modifier of: " + sheet.getDexterityModifier());
-            System.out.println("How hearty are you? (Constitution)");
-            sheet.setConstitution(userInput.nextInt());
-            sheet.setConstitutionModifier(sheet.calculateModifier(sheet.getConstitution()));
-            System.out.println("Your ability modifier is " + sheet.getConstitutionModifier() + " With a modifier of: " + sheet.getConstitutionModifier());
-            System.out.println("What is your intelligence?");
-            sheet.setIntelligence(userInput.nextInt());
-            sheet.setIntelligenceModifier(sheet.calculateModifier(sheet.getIntelligence()));
-            System.out.println("Your ability score is: " + sheet.getIntelligence() + " With a modifier of: " + sheet.getIntelligenceModifier());
-            System.out.println("What are your street smarts? (Wisdom)");
-            sheet.setWisdom(userInput.nextInt());
-            sheet.setWisdomModifier(sheet.calculateModifier(sheet.getWisdom()));
-            System.out.println("Lastly, what is your Charisma?");
-            sheet.setCharisma(userInput.nextInt());
-            sheet.setCharismaModifier(sheet.calculateModifier(sheet.getCharisma()));
-            System.out.println("----------------------------------------------------------------------\n" +
-                    "Strength: " + sheet.getStrength() + " +" + sheet.getStrengthModifier() + "\n" +
-                    "Dexterity: " + sheet.getDexterity() + " +" + sheet.getDexterityModifier() + "\n" +
-                    "Constitution: " + sheet.getConstitution() + " +" + sheet.getConstitutionModifier() + "\n" +
-                    "Intelligence: " + sheet.getIntelligence() + " +" + sheet.getIntelligenceModifier() + "\n" +
-                    "Wisdom: " + sheet.getWisdom() + " +" + sheet.getWisdomModifier() + "\n" +
-                    "Charisma: " + sheet.getCharisma() + " +" + sheet.getCharismaModifier());
-            System.out.println("----------------------------------------------------------------------\n");
-
-            playerSheets.add(sheet);
             System.out.println("Would you like to create another player? (Y/N)");
             boolean yayornay = yayOrNay();
             if(yayornay == true)
@@ -112,9 +68,12 @@ public class Main
                 setupFlag = false;
             }
         }
+
+         */
+        
         //end if
         //calling menu
-        setupFlag = menu();
+        setupFlag = menu(playerSheets);
 
 
 
@@ -124,7 +83,74 @@ public class Main
 
 
     }//end main
-    public static void savePlayerSheet(PlayerSheet playerSheet)
+
+    public static void setupPlayerSheet(LinkedList<PlayerSheet> playerSheets)
+    {
+        PlayerSheet sheet = new PlayerSheet();
+        Scanner userInput = new Scanner(System.in);
+        System.out.println(" +++SETUP PLAYER SHEET+++ \n" +
+                "###########################");
+        System.out.println("Welcome. We'll now go through the process to setup your character.");
+        System.out.println("Who are you?\n" +
+                "Please enter your character's name: ");
+        sheet.setName(userInput.nextLine());
+        System.out.println("Hello, " + sheet.getName());
+        System.out.println("What is your race: ");
+        sheet.setRace(userInput.nextLine());
+        System.out.println("You're a " + sheet.getRace() + "? alright...");
+        //call get Globalclass function
+        String playerClass = getGlobalClass();
+        sheet.setPlayerClass(playerClass);
+        System.out.println("A " + sheet.getPlayerClass() + ", great choice.");
+        System.out.println("Every class needs a subclass. What is your subclass?");
+        sheet.setSubclass(userInput.nextLine());
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        System.out.println("----------------------------------------------------------------------\n" +
+                "##### Player Information ##### \n" +
+                "Player Name: " + sheet.getName() + "\n" +
+                "Player Race: " + sheet.getRace() + "\n" +
+                "Player Class: " + sheet.getPlayerClass() + "\n" +
+                "Player Subclass: " + sheet.getSubClass());
+        System.out.println("----------------------------------------------------------------------\n");
+        System.out.println("Let's get your ability scores setup.");
+        System.out.println("How strong are you? ");
+
+        sheet.setStrength(userInput.nextInt());
+        sheet.setStrengthModifier(sheet.calculateModifier(sheet.getStrength()));
+
+        System.out.println("Your ability score is: " + sheet.getStrength() + " With a modifier of: " + sheet.getStrengthModifier());
+        System.out.println("How dexterous are you? ");
+        sheet.setDexterity(userInput.nextInt());
+        sheet.setDexterityModifier(sheet.calculateModifier(sheet.getDexterity()));
+        System.out.println("Your ability score is: " + sheet.getDexterity() + " With a modifier of: " + sheet.getDexterityModifier());
+        System.out.println("How hearty are you? (Constitution)");
+        sheet.setConstitution(userInput.nextInt());
+        sheet.setConstitutionModifier(sheet.calculateModifier(sheet.getConstitution()));
+        System.out.println("Your ability modifier is " + sheet.getConstitutionModifier() + " With a modifier of: " + sheet.getConstitutionModifier());
+        System.out.println("What is your intelligence?");
+        sheet.setIntelligence(userInput.nextInt());
+        sheet.setIntelligenceModifier(sheet.calculateModifier(sheet.getIntelligence()));
+        System.out.println("Your ability score is: " + sheet.getIntelligence() + " With a modifier of: " + sheet.getIntelligenceModifier());
+        System.out.println("What are your street smarts? (Wisdom)");
+        sheet.setWisdom(userInput.nextInt());
+        sheet.setWisdomModifier(sheet.calculateModifier(sheet.getWisdom()));
+        System.out.println("Lastly, what is your Charisma?");
+        sheet.setCharisma(userInput.nextInt());
+        sheet.setCharismaModifier(sheet.calculateModifier(sheet.getCharisma()));
+        System.out.println("----------------------------------------------------------------------\n" +
+                "Strength: " + sheet.getStrength() + " +" + sheet.getStrengthModifier() + "\n" +
+                "Dexterity: " + sheet.getDexterity() + " +" + sheet.getDexterityModifier() + "\n" +
+                "Constitution: " + sheet.getConstitution() + " +" + sheet.getConstitutionModifier() + "\n" +
+                "Intelligence: " + sheet.getIntelligence() + " +" + sheet.getIntelligenceModifier() + "\n" +
+                "Wisdom: " + sheet.getWisdom() + " +" + sheet.getWisdomModifier() + "\n" +
+                "Charisma: " + sheet.getCharisma() + " +" + sheet.getCharismaModifier());
+        System.out.println("----------------------------------------------------------------------\n");
+
+        playerSheets.add(sheet);
+    }//end setupPlayerSheet
+
+    public static void savePlayerSheet(PlayerSheet playerSheet)//this has not been implemented fully
     {
         boolean flag = false;
         String saveFileName = "";
@@ -223,7 +249,7 @@ public class Main
         return null;
     }//
 
-    public static boolean menu()
+    public static boolean menu(LinkedList<PlayerSheet> playerSheets) //this method IS recursive. But it won't get into a runaway loop.
     {
         Scanner input = new Scanner(System.in);
         int selection = 0;
@@ -237,10 +263,11 @@ public class Main
                     "3) Exit \n" +
                     "4) :3 \n" +
                     "5) Save current player sheet \n" +
-                    "6) Load an existing player sheet \n");
+                    "6) Load an existing player sheet \n" +
+                    "7) Display current characters in Linked List");
             System.out.println("$ ");
             selection = input.nextInt();
-            if (selection < 1 && selection > 6) {
+            if (selection < 1 && selection > 7) {
                 System.out.println("The value entered was not correct. Please try again.");
             }
             else{
@@ -249,33 +276,41 @@ public class Main
         }//end while
         switch(selection)
         {
-            case 1:
+            case 1: //setup character
                 System.out.println("Starting character setup...");
                 return true;
             //break;
-            case 2:
+            case 2: //extended options
                 System.out.println("Extended options: Are currently not implemented. Recalling menu function please wait...");
-                menu();
+                menu(playerSheets);
                 break;
-            case 3:
+            case 3: //Exit
                 System.out.println("Exiting...");
                 System.exit(0);
                 break;
-            case 4:
+            case 4: //:3
                 System.out.println(":3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3  \n" +
                         ":3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3  \n" +
                         ":3 :3 :3 :3 :3 :3 :3 :3 :3 ");
-
-            case 5:
-                System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
-                menu();
+                menu(playerSheets);
                 break;
-            case 6:
+
+            case 5:// Save current player sheet
                 System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
-                menu();
+                menu(playerSheets);
+                break;
+            case 6: //Load an existing player sheet
+                System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
+                menu(playerSheets);
+                break;
+            case 7: //Display linked list
+                System.out.println("###PLAYER LINKED LIST### \n" +
+                        playerSheets.toString());
+                menu(playerSheets);
                 break;
             default:
-                System.out.println("If you can see this you fucked up hard.");
+                System.out.println("Menu item not valid or implemented.");
+                menu(playerSheets);
         }
 
         return false;
