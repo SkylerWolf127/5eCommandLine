@@ -184,6 +184,12 @@ public class Main
         else if (yayOrNay.equalsIgnoreCase("n")) {return false;}
         else {return false;}
     }
+    public static void printList(String[] list)
+    {
+        for (int i = 0; i < list.length; i++) {
+            System.out.println(list[i]);
+        }
+    }
 
     public static String getGlobalClass()//reads from FINAL STRING CLASS ARRAY
     {
@@ -194,10 +200,15 @@ public class Main
         boolean validInput = false;
         while (!validInput) {
             System.out.println("Please enter your class based on the following options:");
-            System.out.println(playerClasses.toString()); //oh em gee why can't there be a simple printout for strings
+            //System.out.println(playerClasses.toString()); //oh em gee why can't there be a simple printout for strings
+
+            /*
             for (int i = 0; i < playerClasses.length; i++) {
                 System.out.println(playerClasses[i]);
             }
+
+             */
+            printList(playerClasses);
             int input = userInput.nextInt();
 
             //add validation :p
@@ -350,8 +361,9 @@ public class Main
         boolean menuFlag = false;
         while(menuFlag == false)
         {
-            System.out.println("###APPLICATION MENU### \n" +
-                    "Please enter a number to select an option. \n" +
+            System.out.println("###5eCommandLine MENU###\n" +
+                    "Copyright 2025 SkylerWolf\n" +
+                    "\nPlease enter a number to select an option. \n" +
                     "1) Setup character \n" +
                     "2) Extended options \n" +
                     "3) Exit \n" +
@@ -376,8 +388,8 @@ public class Main
                 //return true;
                 break;
             case 2: //extended options
-                System.out.println("Extended options: Are currently not implemented. Recalling menu function please wait...");
-                menu(playerSheets);
+                System.out.println("Extended options: This is an unfinished experimental feature");
+                extendedMenu(playerSheets);
                 break;
             case 3: //Exit
                 System.out.println("Exiting...");
@@ -409,7 +421,18 @@ public class Main
         }
 
         //return false;
-    }
+    }//end menu
+
+    public static void extendedMenu(LinkedList<PlayerSheet> playerSheets)
+    {
+        System.out.println("###Super Secret Extended Menu###\n" +
+                "There's nothing here yet. Press any key to go back to the regular menu");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+        menu(playerSheets);
+
+
+    }//end extended menu
     public int getValidInput()
     {
         boolean validInput = false;
