@@ -35,6 +35,9 @@ public class Main
 
             3. values inputted for character traits does not get sanitized and properly validated
 
+            4. Subclasses not working properly. Consider consolidating globalPlayerClass and globalPlayerSubClass into one larger method.
+            
+
 
      */
 
@@ -86,7 +89,9 @@ public class Main
             sheet.setPlayerClass(playerClass);
             System.out.println("A " + sheet.getPlayerClass() + ", great choice.");
             System.out.println("Every class needs a subclass. What is your subclass?");
-            sheet.setSubclass(userInput.nextLine());
+            String playerSubClass = getGlobalSubClass(playerClass);
+            sheet.setSubclass(playerSubClass);
+            //sheet.setSubclass(userInput.nextLine());
             System.out.print("\033[H\033[2J");
             System.out.flush();
             System.out.println("----------------------------------------------------------------------\n" +
@@ -234,7 +239,7 @@ public class Main
     public static String getGlobalSubClass(String playerClass)
     {
         String[] artificerSubClass = {"[1] Alchemist ", "[2] Armorer ", "[3] Artillerist ", "[4] Battle Smith "};
-        String[] barbarianSubClass = {"[1] Ancestral Guardian ", "[2] Battleranger ", "[3] Beast ", "[4] Berserker ", "[5] Giant ", "[6] Storm Herald ", "[7] Totem Warrior ", "[8] Wild Magic", "[9] Zealot "};
+        String[] barbarianSubClass = {"[1] Ancestral Guardian ", "[2] Battleranger ", "[3] Beast ", "[4] Berserker ", "[5] Giant ", "[6] Storm Herald ", "[7] Totem Warrior ", "[8] Wild Magic ", "[9] Zealot "};
         String[] bardSubClass = {"[1] Creation ", "[2] Eloquence ", "[3] Glamour ", "[4] Lore ", "[5] Spirits ", "[6] Spirits ", "[7] Swords ", "[8] Valor ", "[9] Whispers "};
         String[] clericSubClass = {"[1] Arcana ", "[2] Death ", "[3] Forge ", "[4] Grave ", "[5] Knowledge ", "[6] Life ", "[7] Light ", "[8] Nature ", "[9] Order ", "[10] Peace ", "[11] Tempest ", "[12] Trickery ", "[13] Twilight ", "[14] War "};
         String[] druidSubClass = {"[1] Dreams", "[2] Land ", "[3] Moon ", "[4] Shepard", "[5] Spores ", "[6] Stars ", "[7] Wildfire "};
@@ -281,6 +286,56 @@ public class Main
                 }//end switch
             }//end while
         }//end alchemist if
+        if(playerClass.toLowerCase() == "barbarian")
+        {
+            System.out.println(barbarianSubClass);
+            while(flag == false)
+            {
+                selection = userInput.nextInt();
+                switch(selection)
+                {
+                    case 1:
+                        returnValue = "Ancestral Guardian";
+                        flag = true;
+                        break;
+                    case 2:
+                        returnValue = "Battleranger";
+                        flag = true;
+                        break;
+                    case 3:
+                        returnValue = "Beast";
+                        flag = true;
+                        break;
+                    case 4:
+                        returnValue = "Berserker";
+                        flag = true;
+                        break;
+                    case 5:
+                        returnValue = "Giant";
+                        flag = true;
+                        break;
+                    case 6:
+                        returnValue = "Storm Herald";
+                        flag = true;
+                        break;
+                    case 7:
+                        returnValue = "Totem Warrior";
+                        flag = true;
+                        break;
+                    case 8:
+                        returnValue = "Wild Magic";
+                        flag = true;
+                        break;
+                    case 9:
+                        returnValue = "Zealot";
+                        flag = true;
+                        break;
+                    default:
+                        System.out.println("Value was not vald.");
+                }//end switch
+            }//end while
+
+        }//end barbarian if
 
 
 
