@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
-import java.io.Serializable; //this is for save/load
 import java.util.LinkedList; //This is for multiple active sheets
 public class Main
 {
@@ -54,23 +53,6 @@ public class Main
 
         //call menu function here
         menu(playerSheets);
-
-        /*
-        while (setupFlag == true)
-        {
-            System.out.println("Would you like to create another player? (Y/N)");
-            boolean yayornay = yayOrNay();
-            if(yayornay == true)
-            {
-                setupFlag = true;
-            }
-            else {
-                setupFlag = false;
-            }
-        }
-
-         */
-
         //end if
         //calling menu
         menu(playerSheets);
@@ -247,7 +229,64 @@ public class Main
             }//end switch
         }
         return null;
-    }//
+    }//end getGlobalClass
+
+    public static String getGlobalSubClass(String playerClass)
+    {
+        String[] artificerSubClass = {"[1] Alchemist ", "[2] Armorer ", "[3] Artillerist ", "[4] Battle Smith "};
+        String[] barbarianSubClass = {"[1] Ancestral Guardian ", "[2] Battleranger ", "[3] Beast ", "[4] Berserker ", "[5] Giant ", "[6] Storm Herald ", "[7] Totem Warrior ", "[8] Wild Magic", "[9] Zealot "};
+        String[] bardSubClass = {"[1] Creation ", "[2] Eloquence ", "[3] Glamour ", "[4] Lore ", "[5] Spirits ", "[6] Spirits ", "[7] Swords ", "[8] Valor ", "[9] Whispers "};
+        String[] clericSubClass = {"[1] Arcana ", "[2] Death ", "[3] Forge ", "[4] Grave ", "[5] Knowledge ", "[6] Life ", "[7] Light ", "[8] Nature ", "[9] Order ", "[10] Peace ", "[11] Tempest ", "[12] Trickery ", "[13] Twilight ", "[14] War "};
+        String[] druidSubClass = {"[1] Dreams", "[2] Land ", "[3] Moon ", "[4] Shepard", "[5] Spores ", "[6] Stars ", "[7] Wildfire "};
+        String[] fighterSubClass = {"[1] Arcane Archer ", "[2] Banneret ", "[3] Battle Master ", "[4] Cavalier ", "[5] Champion ", "[6] Echo Knight ", "[7] Eldritch Knight ", "[8] Psi Warrior ", "[9] Rune Knight ", "[10] Samurai "};
+        String[] monkSubClass = {"[1] Mercy ", "[2] Ascendant Dragon ", "[3] Astral Self ","[4] Drunken Master","[5] Four Elements ","[6] Kensei ","[7] Long Death ","[8] Open Hand ", "[9] Shadow ", "[10] Sun Soul "};
+        String[] paladinSubClass = {"[1] Ancients ","[2] Conquest ", "[3] Crown ","[4] Devotion ", "[5] Glory ","[6] Redemption ","[7] Vengeance ","[8] Watchers ","[9] Oathbreaker "};
+        String[] rangerSubClass = {"[1] Beast Master Conclave ","[2] Drakewarden ","[3] Fey Wanderer ","[4] Gloom Stalker Conclave ","[5]Horizon Walker Conclave ","[6] Hunter Conclave ","[7] Monster Slayer Conclave ","[8] Swarmkeeper"};
+        String[] rogueSubClass = {"[1] Arcane Trickster ","[2] Assassin ","[3] Inquisitive ","[4] Mastermind ","[5] Phantom ","[6] Scout ","[7] Soulknife ","[8] Swashbuckler ","[9] Thief "};
+        String[] sorcererSubClass = {"[1] Aberrant Mind ","[2] Clockwork Soul","[3] Draconic Bloodline ","[4] Divine Soul ","[5] Lunar Sorcery ","[6] Shadow Magic ","[7] Storm Sorcery ","[8] Wild Magic" };
+        String[] warlockSubClass = {"[1] Archfey ", "[2] Celestial ","[3] Fathomless ","[4] Fiend ","[5] The Genie ","[6] Great Old One ","[7] Hexblade ","[8] Undead ","[9] Undying "};
+        String[] wizardSubClass = {"[1] Abjuration ","[2] Bladesinging ","[3] Chrongury ","[4] Conjuration ","[5] Divination ","[6] Enchantment ","[7] Evocation ","[8] Graviturgy ","[9] Illusion ","[10] Necromancy ", "[11] Order of Scribes ", "[12] Transmuation ","[13] War Magic "};
+
+        Scanner userInput = new Scanner(System.in);
+        int selection = 0;
+        boolean flag = false;
+        String returnValue = "";
+        System.out.println("Please select a subclass based on the following options: ");
+
+        if(playerClass.toLowerCase() == "artificer")
+        {
+            System.out.println(artificerSubClass);
+            while(flag == false)
+            {
+                selection = userInput.nextInt();
+                switch(selection)
+                {
+                case 1:
+                    returnValue = "Alchemist";
+                    flag = true;
+                    break;
+                case 2:
+                    returnValue = "Armorer";
+                    flag = true;
+                    break;
+                case 3:
+                    returnValue = "Artillerist";
+                    flag = true;
+                    break;
+                    case 4:
+                        returnValue = "Battle Smith";
+                        flag = true;
+                    default:
+                        System.out.println("Value was not vald.");
+                }//end switch
+            }//end while
+        }//end alchemist if
+
+
+
+
+        return "";
+    }
 
     public static void menu(LinkedList<PlayerSheet> playerSheets) //this method IS recursive. But it won't get into a runaway loop.
     {
