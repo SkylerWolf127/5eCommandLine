@@ -85,12 +85,15 @@ public class Main
             sheet.setRace(userInput.nextLine());
             System.out.println("You're a " + sheet.getRace() + "? alright...");
             //call get Globalclass function
-            String playerClass = getGlobalClass();
-            sheet.setPlayerClass(playerClass);
+            //String playerClass = getGlobalClass();
+            //sheet.setPlayerClass(playerClass);
+            getGlobalClassSubClass(sheet);
+
+
             System.out.println("A " + sheet.getPlayerClass() + ", great choice.");
             System.out.println("Every class needs a subclass. What is your subclass?");
-            String playerSubClass = getGlobalSubClass(playerClass);
-            sheet.setSubclass(playerSubClass);
+            //String playerSubClass = getGlobalSubClass(playerClass);
+            //sheet.setSubclass(playerSubClass);
             //sheet.setSubclass(userInput.nextLine());
             System.out.print("\033[H\033[2J");
             System.out.flush();
@@ -190,12 +193,298 @@ public class Main
             System.out.println(list[i]);
         }
     }
+    public static void getGlobalClassSubClass(PlayerSheet playerSheet)
+    {
+        //this method will combine both getGlobalClass and getGlobalSubclass
+        Scanner userInput = new Scanner(System.in);
+        //TODO: Make this a dictionary at some point...
+        String[] playerClasses = {"[1] Artificer ", "[2] Barbarian ", "[3] Bard ", "[4] Cleric ", "[5] Druid ", "[6] Fighter ", "[7] Monk ", "[8] Paladin ", "[9] Ranger ", "[10] Rogue ", "[11] Sorcerer ", "[12] Warlock ", "[13] Wizard "};
+        //SUBCLASSES
+        String[] artificerSubClass = {"[1] Alchemist ", "[2] Armorer ", "[3] Artillerist ", "[4] Battle Smith "};
+        String[] barbarianSubClass = {"[1] Ancestral Guardian ", "[2] Battleranger ", "[3] Beast ", "[4] Berserker ", "[5] Giant ", "[6] Storm Herald ", "[7] Totem Warrior ", "[8] Wild Magic ", "[9] Zealot "};
+        String[] bardSubClass = {"[1] Creation ", "[2] Eloquence ", "[3] Glamour ", "[4] Lore ", "[5] Spirits ", "[6] Swords ", "[7] Valor ", "[8] Whispers "};
+        String[] clericSubClass = {"[1] Arcana ", "[2] Death ", "[3] Forge ", "[4] Grave ", "[5] Knowledge ", "[6] Life ", "[7] Light ", "[8] Nature ", "[9] Order ", "[10] Peace ", "[11] Tempest ", "[12] Trickery ", "[13] Twilight ", "[14] War "};
+        String[] druidSubClass = {"[1] Dreams", "[2] Land ", "[3] Moon ", "[4] Shepard", "[5] Spores ", "[6] Stars ", "[7] Wildfire "};
+        String[] fighterSubClass = {"[1] Arcane Archer ", "[2] Banneret ", "[3] Battle Master ", "[4] Cavalier ", "[5] Champion ", "[6] Echo Knight ", "[7] Eldritch Knight ", "[8] Psi Warrior ", "[9] Rune Knight ", "[10] Samurai "};
+        String[] monkSubClass = {"[1] Mercy ", "[2] Ascendant Dragon ", "[3] Astral Self ","[4] Drunken Master","[5] Four Elements ","[6] Kensei ","[7] Long Death ","[8] Open Hand ", "[9] Shadow ", "[10] Sun Soul "};
+        String[] paladinSubClass = {"[1] Ancients ","[2] Conquest ", "[3] Crown ","[4] Devotion ", "[5] Glory ","[6] Redemption ","[7] Vengeance ","[8] Watchers ","[9] Oathbreaker "};
+        String[] rangerSubClass = {"[1] Beast Master Conclave ","[2] Drakewarden ","[3] Fey Wanderer ","[4] Gloom Stalker Conclave ","[5]Horizon Walker Conclave ","[6] Hunter Conclave ","[7] Monster Slayer Conclave ","[8] Swarmkeeper"};
+        String[] rogueSubClass = {"[1] Arcane Trickster ","[2] Assassin ","[3] Inquisitive ","[4] Mastermind ","[5] Phantom ","[6] Scout ","[7] Soulknife ","[8] Swashbuckler ","[9] Thief "};
+        String[] sorcererSubClass = {"[1] Aberrant Mind ","[2] Clockwork Soul","[3] Draconic Bloodline ","[4] Divine Soul ","[5] Lunar Sorcery ","[6] Shadow Magic ","[7] Storm Sorcery ","[8] Wild Magic" };
+        String[] warlockSubClass = {"[1] Archfey ", "[2] Celestial ","[3] Fathomless ","[4] Fiend ","[5] The Genie ","[6] Great Old One ","[7] Hexblade ","[8] Undead ","[9] Undying "};
+        String[] wizardSubClass = {"[1] Abjuration ","[2] Bladesinging ","[3] Chrongury ","[4] Conjuration ","[5] Divination ","[6] Enchantment ","[7] Evocation ","[8] Graviturgy ","[9] Illusion ","[10] Necromancy ", "[11] Order of Scribes ", "[12] Transmuation ","[13] War Magic "};
+
+        boolean validInput = false;
+        while(!validInput) {
+            System.out.println("Please enter your class based on the following options:\n");
+            printList(playerClasses);
+            int input = userInput.nextInt();
+
+            {
+                switch (input) {
+                    case 1:
+                        playerSheet.setPlayerClass("Artificer");
+                        validInput = true;
+                        break;
+                    case 2:
+                        //return "Barbarian";
+                        playerSheet.setPlayerClass("Barbarian");
+                        validInput = true;
+                        break;
+                    case 3:
+                        //return "Bard";
+                        playerSheet.setPlayerClass("Bard");
+                        validInput = true;
+                        break;
+                    case 4:
+                        //return "Cleric";
+                        playerSheet.setPlayerClass("Cleric");
+                        validInput = true;
+                        break;
+                    case 5:
+                        //return "Druid";
+                        playerSheet.setPlayerClass("Druid");
+                        validInput = true;
+                        break;
+                    case 6:
+                        //return "Fighter";
+                        playerSheet.setPlayerClass("Fighter");
+                        validInput = true;
+                        break;
+                    case 7:
+                        //return "Monk";
+                        playerSheet.setPlayerClass("Monk");
+                        validInput = true;
+                        break;
+                    case 8:
+                        //return "Paladin";
+                        playerSheet.setPlayerClass("Paladin");
+                        validInput = true;
+                        break;
+                    case 9:
+                        //return "Ranger";
+                        playerSheet.setPlayerClass("Ranger");
+                        validInput = true;
+                        break;
+
+                    case 10:
+                        //return "Rogue";
+                        playerSheet.setPlayerClass("Rogue");
+                        validInput = true;
+                        break;
+                    case 11:
+                        //return "Sorcerer";
+                        playerSheet.setPlayerClass("Sorcerer");
+                        validInput = true;
+                        break;
+                    case 12:
+                        //return "Warlock";
+                        validInput = true;
+                        break;
+                    case 13:
+                        //return "Wizard";
+                        playerSheet.setPlayerClass("Wizard");
+                        validInput = true;
+                        break;
+                    default:
+                        System.out.println("Selection entered is not a valid class");
+
+                }
+            }
+            //GET SUBCLASSES
+            validInput = false;
+            {
+                System.out.println("Please enter your subclass based on the following options:\n");
+                switch (input) {
+                    case 1:
+                        printList(artificerSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input) {
+                                case 1:
+                                    playerSheet.setSubclass("Alchemist");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Armorer");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Artillerist");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Battle Smith");
+                                    validInput = true;
+                                    break;
+                                default:
+                                    System.out.println("Selection entered is not a valid sub class");
+                            }
+                        }
+                        break;
+                    case 2:
+                        //return "Barbarian";
+                        //playerSheet.setPlayerClass("Barbarian");
+                        printList(barbarianSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input)
+                            {
+                                case 1:
+                                    playerSheet.setSubclass("Ancestral Guardian");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Battleranger");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Beast");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Berserker");
+                                    validInput = true;
+                                    break;
+                                case 5:
+                                    playerSheet.setSubclass("Giant");
+                                    validInput = true;
+                                    break;
+                                case 6:
+                                    playerSheet.setSubclass("Storm Herald");
+                                    validInput = true;
+                                    break;
+                                case 7:
+                                    playerSheet.setSubclass("Totem Warrior");
+                                    validInput = true;
+                                    break;
+                                case 8:
+                                    playerSheet.setSubclass("Wild Magic");
+                                    validInput = true;
+                                    break;
+                            }
+                        }
+                        validInput = true;
+                        break;
+                    case 3:
+                        //return "Bard";
+                        //playerSheet.setPlayerClass("Bard");
+
+                        printList(bardSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input)
+                            {
+                                case 1:
+                                    playerSheet.setSubclass("Creation");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Eloquence");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Glamour");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Lore");
+                                    validInput = true;
+                                    break;
+                                case 5:
+                                    playerSheet.setSubclass("Spirits");
+                                    validInput = true;
+                                    break;
+                                case 6:
+                                    playerSheet.setSubclass("Swords");
+                                    validInput = true;
+                                    break;
+                                case 7:
+                                    playerSheet.setSubclass("Valor");
+                                    validInput = true;
+                                    break;
+                                case 8:
+                                    playerSheet.setSubclass("Whispers");
+                                    validInput = true;
+                                    break;
+                                default:
+                                    System.out.println("Selection entered is not a valid sub class");
+                            }//end switch
+                        }//end while
+                        validInput = true;
+                        break;
+
+                    case 4:
+                        //return "Cleric";
+                        //playerSheet.setPlayerClass("Cleric");
+                        validInput = true;
+                        break;
+                    case 5:
+                        //return "Druid";
+                        playerSheet.setPlayerClass("Druid");
+                        validInput = true;
+                        break;
+                    case 6:
+                        //return "Fighter";
+                        playerSheet.setPlayerClass("Fighter");
+                        validInput = true;
+                        break;
+                    case 7:
+                        //return "Monk";
+                        playerSheet.setPlayerClass("Monk");
+                        validInput = true;
+                        break;
+                    case 8:
+                        //return "Paladin";
+                        playerSheet.setPlayerClass("Paladin");
+                        validInput = true;
+                        break;
+                    case 9:
+                        //return "Ranger";
+                        playerSheet.setPlayerClass("Ranger");
+                        validInput = true;
+                        break;
+
+                    case 10:
+                        //return "Rogue";
+                        playerSheet.setPlayerClass("Rogue");
+                        validInput = true;
+                        break;
+                    case 11:
+                        //return "Sorcerer";
+                        playerSheet.setPlayerClass("Sorcerer");
+                        validInput = true;
+                        break;
+                    case 12:
+                        //return "Warlock";
+                        validInput = true;
+                        break;
+                    case 13:
+                        //return "Wizard";
+                        playerSheet.setPlayerClass("Wizard");
+                        validInput = true;
+                        break;
+                    default:
+                        System.out.println("Selection entered is not a valid class");
+
+                }
+
+            }
+        }
+
+
+    }//end getGlobalClassSubClass
 
     public static String getGlobalClass()//reads from FINAL STRING CLASS ARRAY
     {
         Scanner userInput = new Scanner(System.in);
         //TODO: Make this a dictionary at some point...
         String[] playerClasses = {"[1] Artificer ", "[2] Barbarian ", "[3] Bard ", "[4] Cleric ", "[5] Druid ", "[6] Fighter ", "[7] Monk ", "[8] Paladin ", "[9] Ranger ", "[10] Rogue ", "[11] Sorcerer ", "[12] Warlock ", "[13] Wizard "};
+
+
 
         boolean validInput = false;
         while (!validInput) {

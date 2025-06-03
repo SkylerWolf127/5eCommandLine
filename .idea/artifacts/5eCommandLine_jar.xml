@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="5eCommandLine:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/5eCommandLine_jar</output-path>
+    <root id="archive" name="5eCommandLine.jar">
+      <element id="module-output" name="5eCommandLine" />
+      <element id="library" level="project" name="5eCommandLine" />
+    </root>
+  </artifact>
+</component>
