@@ -420,16 +420,173 @@ public class Main
                     case 4:
                         //return "Cleric";
                         //playerSheet.setPlayerClass("Cleric");
+                        printList(clericSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input)
+                            {
+                                case 1:
+                                    playerSheet.setSubclass("Arcana Domain");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Death Domain");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Forge Domain");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Grave Domain");
+                                    validInput = true;
+                                    break;
+                                case 5:
+                                    playerSheet.setSubclass("Knowledge Domain");
+                                    validInput = true;
+                                    break;
+                                case 6:
+                                    playerSheet.setSubclass("Life Domain");
+                                    validInput = true;
+                                    break;
+                                case 7:
+                                    playerSheet.setSubclass("Light Domain");
+                                    validInput = true;
+                                    break;
+                                case 8:
+                                    playerSheet.setSubclass("Nature Domain");
+                                    validInput = true;
+                                    break;
+                                case 9:
+                                    playerSheet.setSubclass("Order Domain");
+                                    validInput = true;
+                                    break;
+                                case 10:
+                                    playerSheet.setSubclass("Peace Domain");
+                                    validInput = true;
+                                    break;
+                                case 11:
+                                    playerSheet.setSubclass("Tempest Domain");
+                                    validInput = true;
+                                    break;
+                                case 12:
+                                    playerSheet.setSubclass("Trickery Domain");
+                                    validInput = true;
+                                    break;
+                                case 13:
+                                    playerSheet.setSubclass("Twilight Domain");
+                                    validInput = true;
+                                    break;
+                                case 14:
+                                    playerSheet.setSubclass("War Domain");
+                                    validInput = true;
+                                    break;
+                                default:
+                                    System.out.println("Selection entered is not a valid sub class");
+                                    validInput = false;
+                            }//end inner switch
+
+
+                        }//end while loop
                         validInput = true;
                         break;
                     case 5:
                         //return "Druid";
-                        playerSheet.setPlayerClass("Druid");
+                        //playerSheet.setPlayerClass("Druid");
+                        printList(druidSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input)
+                            {
+                                case 1:
+                                    playerSheet.setSubclass("Circle of Dreams");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Cirlce of the Land");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Cirlce of the Moon");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Cirlce of the Shepherd");
+                                    validInput = true;
+                                    break;
+                                case 5:
+                                    playerSheet.setSubclass("Circle of Spores");
+                                    validInput = true;
+                                    break;
+                                case 6:
+                                    playerSheet.setSubclass("Circle of Stars");
+                                    validInput = true;
+                                    break;
+                                case 7:
+                                    playerSheet.setSubclass("Circle of Wildfire");
+                                    validInput = true;
+                                    break;
+                                default: System.out.println("Selection entered is not a valid sub class");
+                            }//end switch
+                        }//end while
                         validInput = true;
                         break;
                     case 6:
                         //return "Fighter";
-                        playerSheet.setPlayerClass("Fighter");
+                        //playerSheet.setPlayerClass("Fighter");
+                        printList(fighterSubClass);
+                        while(!validInput)
+                        {
+                            input = userInput.nextInt();
+                            switch (input)
+                            {
+                                case 1:
+                                    playerSheet.setSubclass("Arcane Archer");
+                                    validInput = true;
+                                    break;
+                                case 2:
+                                    playerSheet.setSubclass("Banneret");
+                                    validInput = true;
+                                    break;
+                                case 3:
+                                    playerSheet.setSubclass("Battle Master");
+                                    validInput = true;
+                                    break;
+                                case 4:
+                                    playerSheet.setSubclass("Cavalier");
+                                    validInput = true;
+                                    break;
+                                case 5:
+                                    playerSheet.setSubclass("Champion");
+                                    validInput = true;
+                                    break;
+                                case 6:
+                                    playerSheet.setSubclass("Echo Knight");
+                                    validInput = true;
+                                    break;
+                                case 7:
+                                    playerSheet.setSubclass("Eldritch Knight");
+                                    validInput = true;
+                                    break;
+                                case 8:
+                                    playerSheet.setSubclass("Psi Warrior");
+                                    validInput = true;
+                                    break;
+                                case 9:
+                                    playerSheet.setSubclass("Rune Knight");
+                                    validInput = true;
+                                    break;
+                                case 10:
+                                    playerSheet.setSubclass("Samurai");
+                                    validInput = true;
+                                    break;
+                                default:
+                                    System.out.println("Selection entered is not a valid sub class");
+                                    validInput = false;
+                            }//end switch statement
+                        }//end while loop
                         validInput = true;
                         break;
                     case 7:
