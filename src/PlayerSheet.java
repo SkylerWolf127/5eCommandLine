@@ -1,5 +1,7 @@
-public class PlayerSheet
+import java.io.Serializable;
+public class PlayerSheet implements Serializable
 {
+    private static final long serialVersionUID = 1L;
     //instance strings
     private String name;
     private String race;
@@ -282,7 +284,7 @@ public class PlayerSheet
     public String toString()
     {
 
-        String returnValue = "";
+
 
         return this.name;
     }

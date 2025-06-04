@@ -890,6 +890,12 @@ public class Main
 
     }//end getGlobalClassSubClass
 
+    //PlayerSheetIO.savePlayerSheetToFile(player, "player.dat");
+    /*
+    PlayerSheet loadedPlayer = PlayerSheetIO.loadPlayerSheetFromFile("player.dat");
+        if (loadedPlayer != null) {
+            System.out.println("Name: " + loadedPlayer.getName());
+     */
     public static void menu(LinkedList<PlayerSheet> playerSheets) //this method IS recursive. But it won't get into a runaway loop.
     {
         Scanner input = new Scanner(System.in);
@@ -906,8 +912,9 @@ public class Main
                     "4) :3 \n" +
                     "5) Save current player sheet \n" +
                     "6) Load an existing player sheet \n" +
+                    "### DEBUG LAND ### (Tread with caution brohaus...)\n" +
                     "7) Display current characters in Linked List");
-            System.out.println("$ ");
+
             selection = input.nextInt();
             if (selection < 1 && selection > 7) {
                 System.out.println("The value entered was not correct. Please try again.");
@@ -939,11 +946,43 @@ public class Main
                 break;
 
             case 5:// Save current player sheet
-                System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
+                //System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
+                if(playerSheets.isEmpty())
+                {
+                    System.out.println("There is currently not any active sheets in the list.\n" +
+                            "Please load a sheet or create a new one.\n" +
+                            "Returning to main menu...\n" +
+                            "\n" +
+                            "\n" +
+                            "\n" +
+                            "\n" +
+                            "\n");
+                }
+                else {
+                    System.out.println("Player sheet will be saved based on the name of the current character sheet.");
+                    PlayerSheet saveSheet = playerSheets.get(playerSheets.size() - 1);
+                    System.out.println(saveSheet.toString());
+                    String saveName = saveSheet.getName();
+                    saveName = saveName + ".dat";
+                    PlayerSheetIO.savePlayerSheetToFile(saveSheet, saveName);
+                }
                 menu(playerSheets);
                 break;
             case 6: //Load an existing player sheet
-                System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
+                //System.out.println("This functionality has not been implemented yet. Recalling the menu function.");
+                System.out.println("Please enter the name of the character you wish to load. The name is CASE SENSITIVE.");
+                Scanner userInput = new Scanner(System.in);
+                String loadName = userInput.next();
+                //append .dat string
+                loadName = loadName + ".dat";
+                PlayerSheet loadedPlayer = PlayerSheetIO.loadPlayerSheetFromFile(loadName);
+                if (loadedPlayer != null) {
+                    System.out.println("Name: " + loadedPlayer.getName());
+                    playerSheets.add(loadedPlayer);
+                }
+
+
+
                 menu(playerSheets);
                 break;
             case 7: //Display linked list
