@@ -5,6 +5,7 @@ public class PlayerSheet
     private String race;
     private String playerClass;
     private String subClass;
+    private String gender;
     //private numbers
     private int healthPoints;
     private int temporaryHealthPoints;
@@ -140,6 +141,7 @@ public class PlayerSheet
     {
         return this.subClass;
     }
+    public String getGender(){return this.gender;}
     public int getHealthPoints()
     {
         return this.healthPoints;
@@ -213,6 +215,7 @@ public class PlayerSheet
     {
         this.subClass = newSubclass;
     }
+    public void setGender(String newGender){this.gender = newGender;}
     public void setHealthPoints(int newHealthPoints)
     {
         this.healthPoints = newHealthPoints;
