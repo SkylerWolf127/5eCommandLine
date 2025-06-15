@@ -1,7 +1,8 @@
 import java.io.*;
 public class PlayerSheetIO
 {
-    public static void savePlayerSheetToFile(PlayerSheet sheet, String filename) {
+    public static void savePlayerSheetToFile(PlayerSheet sheet, String filename)
+    {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(sheet);
             System.out.println("Player sheet saved to " + filename);
@@ -10,7 +11,8 @@ public class PlayerSheetIO
         }
     }
 
-    public static PlayerSheet loadPlayerSheetFromFile(String filename) {
+    public static PlayerSheet loadPlayerSheetFromFile(String filename)
+    {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
             PlayerSheet sheet = (PlayerSheet) ois.readObject();
             System.out.println("Player sheet loaded from " + filename);
