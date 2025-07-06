@@ -283,9 +283,6 @@ public class PlayerSheet implements Serializable
     @Override
     public String toString()
     {
-
-
-
-        return this.name;
+        return this.name + " the " + this.getRace() + " " + this.getPlayerClass() + " " + this.getSubClass() + " ";
     }
 }//end PlayerSheet class

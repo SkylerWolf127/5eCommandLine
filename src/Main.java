@@ -430,15 +430,15 @@ public class Main
                                     validInput = true;
                                     break;
                                 case 2:
-                                    playerSheet.setSubclass("Cirlce of the Land");
+                                    playerSheet.setSubclass("Circle of the Land");
                                     validInput = true;
                                     break;
                                 case 3:
-                                    playerSheet.setSubclass("Cirlce of the Moon");
+                                    playerSheet.setSubclass("Circle of the Moon");
                                     validInput = true;
                                     break;
                                 case 4:
-                                    playerSheet.setSubclass("Cirlce of the Shepherd");
+                                    playerSheet.setSubclass("Circle of the Shepherd");
                                     validInput = true;
                                     break;
                                 case 5:
