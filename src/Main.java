@@ -116,7 +116,11 @@ public class Main
     {
         for (int i = 0; i < list.length; i++) {
             System.out.println(list[i]);
-        }
+        }//end for
+        System.out.println("Press any key to continue...");
+        Scanner userInput = new Scanner(System.in);
+        userInput.nextLine();
+        userInput.close();
     }
     public static void getGlobalClassSubClass(PlayerSheet playerSheet)
     {
@@ -898,6 +902,8 @@ public class Main
      */
     public static void menu(LinkedList<PlayerSheet> playerSheets) //this method IS recursive. But it won't get into a runaway loop.
     {
+        System.out.println("CURRENT STACK TRACE:");
+        System.out.println(Thread.currentThread().getStackTrace() + "\n");
         Scanner input = new Scanner(System.in);
         int selection = 0;
         boolean menuFlag = false;
@@ -989,6 +995,10 @@ public class Main
                 System.out.println("###PLAYER LINKED LIST### \n" +
                         playerSheets.toString());
                 menu(playerSheets);
+                System.out.println("Press any key to continue...");
+                Scanner userInput2 = new Scanner(System.in);
+                userInput2.nextLine();
+                userInput2.close();
                 break;
             default:
                 System.out.println("Menu item not valid or implemented.");
